@@ -1,0 +1,276 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Script = Instance.new("ScreenGui")
+local Carner2 = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner_2 = Instance.new("UICorner")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local UICorner_3 = Instance.new("UICorner")
+local Carner = Instance.new("ScrollingFrame")
+local UICorner_4 = Instance.new("UICorner")
+local ListPlayers = Instance.new("ScrollingFrame")
+local Players = Instance.new("UICorner")
+
+--Properties:
+
+Script.Name = "Script"
+Script.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Script.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Carner2.Name = "Carner2"
+Carner2.Parent = Script
+Carner2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Carner2.BackgroundTransparency = 0.382
+Carner2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Carner2.BorderSizePixel = 0
+Carner2.Position = UDim2.new(0.277473956, 0, 0.277953237, 0)
+Carner2.Size = UDim2.new(0, 465, 0, 282)
+
+UICorner.CornerRadius = UDim.new(0.100000001, 0)
+UICorner.Parent = Carner2
+
+TextLabel.Parent = Carner2
+TextLabel.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0, 0, 0.43617022, 0)
+TextLabel.Size = UDim2.new(0, 357, 0, 100)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "olá seja bem vindo"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+ImageLabel.Parent = Carner2
+ImageLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BackgroundTransparency = 0.800
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.782795727, 0, 0.446808517, 0)
+ImageLabel.Size = UDim2.new(0, 93, 0, 93)
+ImageLabel.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+UICorner_2.CornerRadius = UDim.new(0.300000012, 0)
+UICorner_2.Parent = ImageLabel
+
+ImageLabel_2.Parent = Carner2
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BackgroundTransparency = 0.800
+ImageLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel_2.BorderSizePixel = 0
+ImageLabel_2.Position = UDim2.new(0.37849462, 0, 0.0283687934, 0)
+ImageLabel_2.Size = UDim2.new(0, 134, 0, 127)
+ImageLabel_2.Image = "rbxassetid://105141358752545"
+
+UICorner_3.CornerRadius = UDim.new(0.300000012, 0)
+UICorner_3.Parent = ImageLabel_2
+
+Carner.Name = "Carner"
+Carner.Parent = Script
+Carner.Active = true
+Carner.BackgroundColor3 = Color3.fromRGB(44, 44, 35)
+Carner.BackgroundTransparency = 0.150
+Carner.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Carner.BorderSizePixel = 0
+Carner.Position = UDim2.new(0.184750736, 0, 0.197916672, 0)
+Carner.Size = UDim2.new(0, 630, 0, 440)
+Carner.Visible = false
+
+UICorner_4.CornerRadius = UDim.new(0.0799999982, 0)
+UICorner_4.Parent = Carner
+
+ListPlayers.Name = "ListPlayers"
+ListPlayers.Parent = Carner
+ListPlayers.Active = true
+ListPlayers.BackgroundColor3 = Color3.fromRGB(53, 52, 43)
+ListPlayers.BackgroundTransparency = 0.100
+ListPlayers.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ListPlayers.BorderSizePixel = 0
+ListPlayers.Position = UDim2.new(0.0154541014, 0, 0.0397135429, 0)
+ListPlayers.Size = UDim2.new(0, 261, 0, 322)
+ListPlayers.ZIndex = 3
+
+Players.CornerRadius = UDim.new(0.200000003, 0)
+Players.Name = "Players"
+Players.Parent = ListPlayers
+
+-- Scripts:
+
+local function XHMKTO_fake_script() -- Script.LocalScript 
+	local script = Instance.new('LocalScript', Script)
+
+	local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+	local screenGui = script.Parent -- Ajuste se o script não estiver na mesma pasta que os Frames
+	
+	-- Espera 3 segundos
+	task.wait(6)
+	
+	-- Tenta localizar os Frames e altera a visibilidade
+	if screenGui:FindFirstChild("Carner") then
+		screenGui.Carner.Visible = true
+	end
+	
+	if screenGui:FindFirstChild("Carner2") then -- Ajustado para "Carner2" conforme sua lógica
+		screenGui.Carner2.Visible = false
+	end
+end
+coroutine.wrap(XHMKTO_fake_script)()
+local function TOOAHD_fake_script() -- Script.players2 
+	local script = Instance.new('LocalScript', Script)
+
+	local Players = game:GetService("Players")
+	local RunService = game:GetService("RunService")
+	
+	local player = Players.LocalPlayer
+	local gui = script.Parent
+	local scrolling = gui:WaitForChild("ListPlayers")
+	local layout = scrolling:WaitForChild("UIListLayout")
+	
+	local selectedButton = nil
+	local flying = false
+	
+	-- ATUALIZAR TAMANHO DO SCROLL
+	local function updateCanvas()
+		scrolling.CanvasSize = UDim2.new(0,0,0, layout.AbsoluteContentSize.Y + 5)
+	end
+	layout:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(updateCanvas)
+	
+	-- CRIAR BOTÃO PLAYER
+	local function createPlayerButton(plr)
+		if plr == player then return end
+	
+		local btn = Instance.new("TextButton")
+		btn.Size = UDim2.new(1, -5, 0, 40)
+		btn.BackgroundColor3 = Color3.fromRGB(50,50,50)
+		btn.TextColor3 = Color3.new(1,1,1)
+		btn.TextScaled = true
+		btn.Text = plr.Name
+		btn.Parent = scrolling
+	
+		local corner = Instance.new("UICorner", btn)
+	
+		local stroke = Instance.new("UIStroke", btn)
+		stroke.Thickness = 0
+		stroke.Color = Color3.new(1,1,1)
+	
+		btn.MouseButton1Click:Connect(function()
+			if selectedButton then
+				local oldStroke = selectedButton:FindFirstChildOfClass("UIStroke")
+				if oldStroke then
+					oldStroke.Thickness = 0
+				end
+			end
+	
+			selectedButton = btn
+			stroke.Thickness = 3
+		end)
+	end
+	
+	-- PLAYERS JÁ NO JOGO
+	for _,plr in pairs(Players:GetPlayers()) do
+		createPlayerButton(plr)
+	end
+	
+	-- ENTRAR PLAYER
+	Players.PlayerAdded:Connect(function(plr)
+		createPlayerButton(plr)
+	end)
+	
+	-- SAIR PLAYER
+	Players.PlayerRemoving:Connect(function(plr)
+		for _,obj in pairs(scrolling:GetChildren()) do
+			if obj:IsA("TextButton") and obj.Text == plr.Name then
+				obj:Destroy()
+			end
+		end
+	end)
+	
+	-- FUNÇÃO TELEPORT GIRANDO
+	local function spinTeleport(targetPlayer)
+		local char = player.Character
+		if not char or not char:FindFirstChild("HumanoidRootPart") then return end
+		if not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then return end
+	
+		local hrp = char.HumanoidRootPart
+		local targetHrp = targetPlayer.Character.HumanoidRootPart
+	
+		local start = tick()
+	
+		while tick() - start < 3 do
+			if not targetHrp.Parent then break end
+	
+			local angle = tick() * 20
+			hrp.CFrame =
+				targetHrp.CFrame *
+				CFrame.new(math.random(-3,3), 0, math.random(-3,3)) *
+				CFrame.Angles(0, angle, 0)
+	
+			RunService.RenderStepped:Wait()
+		end
+	
+		-- VOAR DO LADO
+		flying = true
+		RunService.RenderStepped:Connect(function()
+			if not flying then return end
+			if not targetPlayer.Character or not targetPlayer.Character:FindFirstChild("HumanoidRootPart") then return end
+	
+			local sidePos = targetPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(4, 2, 0)
+			hrp.CFrame = sidePos
+		end)
+	end
+	
+	-- CHAT COMANDO
+	player.Chatted:Connect(function(msg)
+		if not selectedButton then return end
+	
+		local selectedName = selectedButton.Text
+		local targetPlayer = Players:FindFirstChild(selectedName)
+		if not targetPlayer then return end
+	
+		local lower = string.lower(msg)
+	
+		if lower == "rika kill "..string.lower(selectedName) then
+			spinTeleport(targetPlayer)
+		end
+	end)
+end
+coroutine.wrap(TOOAHD_fake_script)()
+local function VTWC_fake_script() -- TextLabel.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	local label = script.Parent
+	local textoOriginal = "Olá, bem-vindo" -- Defina seu texto aqui
+	for i = 1, #textoOriginal do
+		label.Text = string.sub(textoOriginal, 1, i)
+		task.wait(0.15) -- Aguarda um tempo antes de colocar a próxima letra
+	end
+end
+coroutine.wrap(VTWC_fake_script)()
+local function OKGBEAN_fake_script() -- ImageLabel.LocalScript 
+	local script = Instance.new('LocalScript', ImageLabel)
+
+	local Players = game:GetService("Players")
+	local player = Players.LocalPlayer
+	local imageLabel = script.Parent
+	
+	-- Configurações da imagem
+	local userId = player.UserId
+	local thumbType = Enum.ThumbnailType.HeadShot -- Pode ser AvatarThumbnail ou AvatarBust
+	local thumbSize = Enum.ThumbnailSize.Size420x420
+	
+	-- Pega a imagem do avatar do jogador
+	local content, isReady = Players:GetUserThumbnailAsync(userId, thumbType, thumbSize)
+	
+	-- Aplica a imagem ao ImageLabel
+	if isReady then
+		imageLabel.Image = content
+	end
+end
+coroutine.wrap(OKGBEAN_fake_script)()
